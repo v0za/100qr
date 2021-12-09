@@ -1,13 +1,11 @@
 require('dotenv').config();
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const app = express();
-const fs = require("fs");
-const path = require("path");
-const server = https.createServer({key:fs.readFileSync(path.join(__dirname,'cert','key.pem')),cert:fs.readFileSync(path.join(__dirname,'cert','cert.pem'))},app);
+const server = http.createServer(app);
 const socket = require("socket.io");
 const io = socket(server);
-
+const path = require("path");
 
 const users = {};
 
