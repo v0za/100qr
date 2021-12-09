@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const app = express();
-const server = https.createServer(app);
+const server = http.createServer(app);
 const socket = require("socket.io");
 const io = socket(server);
 const path = require("path");
